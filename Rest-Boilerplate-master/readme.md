@@ -1,6 +1,6 @@
-## Interview-challenge-1
+# Interview-challenge-1
 
-# Instructions to run the app
+## Instructions to run the app
 
 1- Make sure you have Python installed and visible on your PATH
 
