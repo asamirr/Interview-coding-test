@@ -1,0 +1,93 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "Application to bid on pets in petstore",
+    "version": "1.0.0",
+    "title": "Bids-Application",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Bids",
+      "description": "An API for bidding on pets in a petstore"
+    }
+  ],
+  "paths": {
+    "/request": {
+      "get": {
+        "tags": [
+          "Bids"
+        ],
+        "summary": "Returns all placed bids.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/components/schemas/bid"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Bids"
+        ],
+        "summary": "Place a bid on a specific pet.",
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/bid"
+              }
+            }
+          }
+        },
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/components/schemas/bid"
+            }
+          },
+          "400": {
+            "description": "Failed. Bad post data."
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "bid": {
+        "type": "object",
+        "properties": {
+          "petID": {
+            "type": "integer",
+            "format": "number"
+          },
+          "amount": {
+            "type": "integer",
+            "format": "number"
+          },
+          "userID": {
+            "type": "integer",
+            "format": "number"
+          }
+        }
+      }
+    }
+  }
+}
